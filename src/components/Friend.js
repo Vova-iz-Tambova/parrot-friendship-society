@@ -1,18 +1,16 @@
-// компонент Friend
-
 import React from 'react';
-import { useParams } from 'react-router-dom'; // импортируем хук
+import { useParams, useNavigate} from 'react-router-dom';
 
 import './Friend.css';
 
 function Friend(props) {
-  let { id } = useParams(); // получаем доступ к параметру URL
-
-  let { friends } = props.serverData; // достаём данные, используя деструктуризацию
+  let { id } = useParams();
+  const navigate = useNavigate();
+  let { friends } = props.serverData;
   const friend = friends.find(f => f.id === id);
-  
+
   return (
-      <div className="friend">          
+      <div className="friend">
         <div className="friend__card">
           <img className="friend__userpic" src={friend.profilePicLight} alt={friend.name}/>
           <div className="friend__details">
@@ -22,6 +20,7 @@ function Friend(props) {
             <p className="friend__fav-quote">Любимое высказывание о птицах: "{friend.favBirdQuote}"</p>
           </div>
         </div>
+        <button className="button button_type_back" onClick={() => navigate('/friends')}></button>
       </div>
   );
 }

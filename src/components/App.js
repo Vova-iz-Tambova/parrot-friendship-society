@@ -1,13 +1,10 @@
-// файл App.js
-
 import React from 'react';
 import './App.css';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
-import serverData from '../serverData';
-// импортируем нужные компоненты
 import Friends from './Friends';
 import Friend from './Friend';
 import Dashboard from './Dashboard';
+import serverData from '../serverData';
 
 function App() {
   return (
